@@ -13,8 +13,8 @@ http.listen(config.clientport, function(){
 })
 
 server.on('connect', function(){
-    serverUpdateLoop();
     console.log('connected to server');
+    serverUpdateLoop();
 })
 
 io.on('connection', function(socket){
