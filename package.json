@@ -1,0 +1,23 @@
+{
+  "name": "favand-pi-client",
+  "version": "0.1.0",
+  "description": "A client to run on the Raspberry Pi and communicate with the Pi Server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpfavand/favand-pi-client.git"
+  },
+  "author": "Daniel Favand",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/dpfavand/favand-pi-client/issues"
+  },
+  "homepage": "https://github.com/dpfavand/favand-pi-client#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io-client": "^1.4.5"
+  }
+}
