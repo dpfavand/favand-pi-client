@@ -1,7 +1,7 @@
 var updateControl = {};
 
 updateControl.reboot = function () {
-    require('child_process').exec('halt -p', console.log);
+    require('child_process').exec('reboot', console.log);
 }
 
 updateControl.init = function (server) {
