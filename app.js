@@ -1,9 +1,15 @@
+// Configuration settings. Could be changed based on environment.
 var config  = require('./config');
+
+// http and socket.io server and client
 var app     = require('express')();
 var server  = require('socket.io-client')(config.socketServer);
 var http    = require('http').Server(app);
 var io      = require('socket.io')(http);
 var fs      = require('fs');
+
+// automatic update routines
+var updateControl       = require('./updatecontrol.js').init(server);
 
 // using socket as the client to the main server
 // using io as the local server
@@ -36,7 +42,6 @@ function sendImage(connection){
 function serverUpdateLoop() {
     if(server.connected){
         sendImage(server);
-        console.log(Date.now(), "Sent image to server");
         setTimeout(serverUpdateLoop, 60 * 1000);    
     }
     
