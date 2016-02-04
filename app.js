@@ -37,7 +37,7 @@ function serverUpdateLoop() {
     if(server.connected){
         sendImage(server);
         console.log(Date.now(), "Sent image to server");
-        setTimeout(serverUpdateLoop, 5 * 60 * 1000);    
+        setTimeout(serverUpdateLoop, 60 * 1000);    
     }
     
 }
