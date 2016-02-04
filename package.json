@@ -1,6 +1,6 @@
 {
   "name": "favand-pi-client",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A client to run on the Raspberry Pi and communicate with the Pi Server",
   "main": "app.js",
   "scripts": {
