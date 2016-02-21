@@ -29,7 +29,7 @@ io.on('connection', function(socket){
 })
 
 function sendImage(connection){
-    var python = child.spawn('python3', __dirname+'camera.py');
+    var python = child.spawn('python3', [ __dirname+'camera.py' ]);
     var chunk = '';
     python.stdout.on('data', function(data){
         chunk += data;
