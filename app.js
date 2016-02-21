@@ -6,7 +6,8 @@ var app     = require('express')();
 var server  = require('socket.io-client')(config.socketServer);
 var http    = require('http').Server(app);
 var io      = require('socket.io')(http);
-var fs      = require('fs');
+var fs      = require('fs'); // for the old file-based image system
+var child   = require('child_process'); // for the new stream-based system
 
 // automatic update routines
 var updateControl       = require('./updatecontrol.js').init(server);
@@ -28,6 +29,16 @@ io.on('connection', function(socket){
 })
 
 function sendImage(connection){
+    var python = child.spawn('python3', __dirname+'camera.py');
+    var chunk = '';
+    python.stdout.on('data', function(data){
+        chunk += data;
+    })
+    python.stdout.on('close', function(){
+        console.log(chunk);
+        connection.emit('image', {image: true, buffer: 'data:image/jpeg;base64,' + chunk.toString('base64')});
+    })
+    /* old code to read from a file
     fs.readFile(config.camerajpeg, function(err, buf){
         if (err) {
             server.emit('pi_error', err)
@@ -36,13 +47,13 @@ function sendImage(connection){
             connection.emit('image', {image: true, buffer: 'data:image/jpeg;base64,' + buf.toString('base64')});   
         }    
     }); 
-    
+    */
 }
 
 function serverUpdateLoop() {
     if(server.connected){
         sendImage(server);
-        setTimeout(serverUpdateLoop, 60 * 1000);    
+        setTimeout(serverUpdateLoop, 1 * 1000);    
     }
     
 }
