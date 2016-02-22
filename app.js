@@ -35,6 +35,7 @@ function sendImage(connection){
         chunk += data;
     })
     python.stdout.on('close', function(){
+        console.log('closed');
         console.log(chunk);
         connection.emit('image', {image: true, buffer: 'data:image/jpeg;base64,' + chunk.toString('base64')});
     })
