@@ -1,5 +1,5 @@
 import sys
 import picamera
 with picamera.PiCamera() as camera:
-    sys.stdout.write('test', format='jpeg')
-    camera.capture(sys.stdout)
+    sys.stdout.write('test')
+    camera.capture(sys.stdout, format='jpeg')
