@@ -1,5 +1,3 @@
-var PythonShell = require('python-shell');
-
 var camera = {};
 
 camera.pyCamera = null;
@@ -8,7 +6,7 @@ camera.pyCamera = null;
  * Take pictures and send them to the server yay!
  */
 camera.snapLoop = function(connection){
-   
+   /*
         PythonShell.run('camera.py', function(err, results){
             if (err) throw err;
             
@@ -17,7 +15,7 @@ camera.snapLoop = function(connection){
             
             
         });   
-    
+    */
     /* setTimeout(function() {
         camera.snapLoop(connection);
     }, 1 * 1000); */
