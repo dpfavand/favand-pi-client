@@ -33,7 +33,7 @@ function sendImage(connection){
     
     PythonShell.run('camera.py', function(err, results){
         if (err) throw err;
-        console.llg('RESULTS', results);
+        console.log('RESULTS', results);
     })
     /* first attempt at stream-based system
      var python = child.spawn('python3', [ __dirname+'camera.py' ]);
