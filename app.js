@@ -21,6 +21,6 @@ http.listen(config.clientport, function(){
 
 server.on('connect', function(){
     console.log('connected to server');
-    camera.start(server);
+    camera.snapLoop(server);
 })
 
