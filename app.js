@@ -29,13 +29,33 @@ io.on('connection', function(socket){
     sendImage(socket)
 })
 
+var py = new PythonShell('camera.py');
+
+py.on('message', function(message){
+    console.log("MESSAGE ", message);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function sendImage(connection){
     
-    
+    /* semi-working PythonShell version
     PythonShell.run('camera.py', function(err, results){
         if (err) throw err;
         console.log('RESULTS', results.length);
     })
+    */
     /* first attempt at stream-based system
      var python = child.spawn('python3', [ __dirname+'camera.py' ]);
     var chunk = '';
