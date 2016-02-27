@@ -21,17 +21,6 @@ http.listen(config.clientport, function(){
 
 server.on('connect', function(){
     console.log('connected to server');
-    // camera.snapLoop(server);
+    camera.snapLoop(server);
 })
-
-var PythonShell = require('python-shell');
-
-PythonShell.run('camera.py', function(err, results){
-            if (err) throw err;
-            
-            // connection.emit('image', {image: true, buffer: 'data:image/png;base64,' + results[0] });
-            console.log("snap")
-            
-            
-        });
 
