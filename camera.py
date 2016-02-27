@@ -9,4 +9,4 @@ with picamera.PiCamera() as camera:
 
 stream.seek(0)
 
-print(stream.getValue())
+print(stream.getvalue())
