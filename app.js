@@ -47,18 +47,6 @@ py.on('close', function(message){
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 function sendImage(connection){
     
     /* semi-working PythonShell version
