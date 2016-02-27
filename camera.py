@@ -10,4 +10,4 @@ with picamera.PiCamera() as camera:
 
 stream.seek(0)
 
-sys.stdout.write(stream)
+sys.stdout.write(stream.getvalue())
