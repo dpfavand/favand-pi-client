@@ -29,7 +29,10 @@ io.on('connection', function(socket){
     sendImage(socket)
 })
 
-var py = new PythonShell('camera.py');
+var pyOpts = {
+    mode: 'binary'
+}
+var py = new PythonShell('camera.py', pyOpts);
 
 py.on('message', function(message){
     console.log("MESSAGE ", message);
