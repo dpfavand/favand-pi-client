@@ -19,9 +19,9 @@ camera.snapLoop = function(connection){
             
         });   
     }
-    setTimeout(function() {
+    /* setTimeout(function() {
         camera.snapLoop(connection);
-    }, 1 * 1000);
+    }, 1 * 1000); */
 };
 
 module.exports = camera;
