@@ -1,5 +1,12 @@
-import sys
+import io
 import picamera
+
+stream = io.BytesIO()
+
 with picamera.PiCamera() as camera:
     print("test")
-    # camera.capture(sys.stdout, format='jpeg')
+    camera.capture(stream, format='jpeg')
+
+stream.seek(0)
+
+print(stream.getValue())
