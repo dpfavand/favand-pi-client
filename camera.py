@@ -1,5 +1,6 @@
 import io
 import picamera
+import sys
 
 stream = io.BytesIO()
 
@@ -9,4 +10,4 @@ with picamera.PiCamera() as camera:
 
 stream.seek(0)
 
-print(stream.getvalue())
+sys.stdout.write(stream.getvalue())
