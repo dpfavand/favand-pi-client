@@ -9,7 +9,7 @@ camera.pyCamera = null;
  */
 camera.snapLoop = function(connection){
     if(connection.connected){
-     
+        console.log("snapping!");
         PythonShell.run('camera.py', function(err, results){
             if (err) throw err;
             
