@@ -11,4 +11,4 @@ with picamera.PiCamera() as camera:
 
 stream.seek(0)
 
-sys.stdout.write(b64encode(stream.getvalue()))
+sys.stdout.write(base64.b64encode(stream.getvalue()))
