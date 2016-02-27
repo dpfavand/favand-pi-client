@@ -36,7 +36,7 @@ var pyOpts = {
 var py = new PythonShell('camera.py', pyOpts);
 
 py.on('close', function(message){
-    console.log(py.receive());
+    console.log(py.stdout);
 });
 
 
