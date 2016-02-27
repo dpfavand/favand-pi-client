@@ -37,6 +37,11 @@ var py = new PythonShell('camera.py', pyOpts);
 
 console.log(py);
 
+for (var index = 0; index < 0; index = 0) {
+    console.log('STDOUT', py.stdout);
+    
+}
+
 py.on('close', function(message){
     console.log(py.stdout);
 });
