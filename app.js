@@ -22,5 +22,7 @@ http.listen(config.clientport, function(){
 server.on('connect', function(){
     console.log('connected to server');
     camera.snapLoop(server);
+    
+    server.emit('pi_error', "CONNECTED");
 })
 

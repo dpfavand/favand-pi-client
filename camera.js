@@ -2,8 +2,6 @@ var PythonShell = require('python-shell');
 
 var camera = {};
 
-camera.pyCamera = null;
-
 /**
  * Take pictures and send them to the server yay!
  */
@@ -16,6 +14,9 @@ camera.snapLoop = function(connection){
             console.log(results[0]);
             
             connection.emit('image', {image: true, buffer: 'data:image/png;base64,' + results[0] });
+            
+            connection.emit('pi_error', "SENT IMAGE DAMNIT");
+            
             console.log("snap")
             
             
