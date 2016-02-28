@@ -13,6 +13,8 @@ camera.snapLoop = function(connection){
         PythonShell.run('camera.py', function(err, results){
             if (err) throw err;
             
+            console.log(results[0]);
+            
             connection.emit('image', {image: true, buffer: 'data:image/png;base64,' + results[0] });
             console.log("snap")
             
