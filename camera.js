@@ -19,12 +19,17 @@ camera.snapLoop = function(connection){
             
             console.log("snap")
             
+            setTimeout(function() {
+                camera.snapLoop(connection);
+            }, 1 * 5000);
             
         });   
-    }
-    setTimeout(function() {
+    } else {
+        setTimeout(function() {
         camera.snapLoop(connection);
-    }, 1 * 5000);
+    }, 1 * 5000);    
+    }
+    
 };
 
 module.exports = camera;
