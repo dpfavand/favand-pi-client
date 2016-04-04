@@ -8,7 +8,7 @@ var weather = {};
 weather.sampleLoop = function(connection){
     if(connection.connected){
         
-        fs.readFile('/proc/am2301', function(err, contents) {
+        fs.readFile('/proc/am2301', 'utf8', function(err, contents) {
             console.log("WEATHER", contents);
             weatherData = contents.split(', ');
             connection.emit('weather', {temp: weatherData[0], humidity: weatherData[1]});
