@@ -11,7 +11,7 @@ weather.sampleLoop = function(connection){
         fs.readFile('/proc/am2301', 'utf8', function(err, contents) {
             console.log("WEATHER", contents);
             weatherData = contents.split(', ');
-            connection.emit('weather', {temp: weatherData[0], humidity: weatherData[1]});
+            connection.emit('weather', {temp: weatherData[1], humidity: weatherData[0]});
         })
         
         
