@@ -7,7 +7,7 @@ var server  = require('socket.io-client')(config.socketServer);
 var http    = require('http').Server(app);
 var io      = require('socket.io')(http);
 var camera  = require('./camera'); // for the automatic camera update system
-
+var weather = require('./weather'); // for sampling the temp and humidity and sending the data to the server
 
 // automatic update routines
 var updateControl       = require('./updatecontrol.js').init(server);
@@ -22,6 +22,7 @@ http.listen(config.clientport, function(){
 server.on('connect', function(){
     console.log('connected to server');
     camera.snapLoop(server);
+    weather.sampleLoop(server);
     
     server.emit('pi_error', "CONNECTED");
 })
