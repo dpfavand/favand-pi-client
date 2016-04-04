@@ -19,10 +19,13 @@ http.listen(config.clientport, function(){
     console.log('Listening for connections');
 })
 
+camera.snapLoop(server);
+weather.sampleLoop(server);
+
+
 server.on('connect', function(){
     console.log('connected to server');
-    camera.snapLoop(server);
-    weather.sampleLoop(server);
+    
     
     server.emit('pi_error', "CONNECTED");
 })
