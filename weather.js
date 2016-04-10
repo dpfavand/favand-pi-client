@@ -19,7 +19,7 @@ weather.sampleLoop = function(connection){
     }
     setTimeout(function() {
         weather.sampleLoop(connection);
-    }, 1 * 5000);
+    }, 60 * 1000);
 };
 
 module.exports = weather;

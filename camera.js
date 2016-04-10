@@ -21,13 +21,13 @@ camera.snapLoop = function(connection){
             
             setTimeout(function() {
                 camera.snapLoop(connection);
-            }, 1 * 5000);
+            }, 60 * 1000);
             
         });   
     } else {
         setTimeout(function() {
         camera.snapLoop(connection);
-    }, 1 * 5000);    
+    }, 60 * 1000);    
     }
     
 };
